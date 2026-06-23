@@ -20,7 +20,7 @@ export const handler = async (event) => {
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.RSVP_TO_EMAIL || "adocaice@gmail.com";
+  const toEmail = process.env.RSVP_TO_EMAIL || "kukuljsenada80@gmail.com";
   const fromEmail = process.env.RESEND_FROM_EMAIL || process.env.RSVP_FROM_EMAIL;
 
   if (!apiKey || !fromEmail) {

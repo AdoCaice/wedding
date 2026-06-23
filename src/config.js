@@ -9,7 +9,7 @@ export const invitation = {
     hero: "12.08.2026",
     display: "12-ти август, 2026",
     weekday: "Среда",
-    rsvpDeadline: "15-ти август",
+    rsvpDeadline: "1-ви август",
   },
   copy: {
     familyLine: "Заедно со фамилиите",
