@@ -74,7 +74,7 @@ app.innerHTML = `
 
         <section class="details-panel">
           <div class="detail">
-            <span class="round-icon image-icon"><img src="/assets/rings-icon.webp" alt="" /></span>
+            <span class="round-icon image-icon"><img src="/assets/glasses-icon.webp" alt="" /></span>
             <p class="script">Прием</p>
             <h2>${invitation.venue.receptionTime}</h2>
           </div>

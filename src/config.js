@@ -32,7 +32,7 @@ export const invitation = {
       title: "Прием на гости во ресторанот",
       linkLabel: "Стисни за насоки до ресторан",
       url: "https://maps.app.goo.gl/wcMuUu61LSTxnvKB9",
-      icon: "/assets/rings-icon.webp",
+      icon: "/assets/glasses-icon.webp",
     },
     {
       time: "20:00",
