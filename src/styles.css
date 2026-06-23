@@ -377,6 +377,11 @@ h1 em {
   opacity: 0.92;
 }
 
+.rings-decoration {
+  width: 132px;
+  opacity: 0.82;
+}
+
 .date-details-cover {
   position: relative;
   overflow: hidden;

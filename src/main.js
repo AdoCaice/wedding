@@ -50,7 +50,7 @@ app.innerHTML = `
             .join("")}
         </div>
         <p class="story">${invitation.copy.story}</p>
-        <img class="champagne" src="/assets/champagne-stack.webp" alt="" />
+        <img class="champagne rings-decoration" src="/assets/rings-only.svg" alt="" />
       </section>
 
       <section class="date-details-cover">
@@ -74,7 +74,7 @@ app.innerHTML = `
 
         <section class="details-panel">
           <div class="detail">
-            <span class="round-icon image-icon"><img src="/assets/rings-icon.webp" alt="" /></span>
+            <span class="round-icon image-icon"><img src="/assets/rings-only.svg" alt="" /></span>
             <p class="script">Прием</p>
             <h2>${invitation.venue.receptionTime}</h2>
           </div>
