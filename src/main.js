@@ -173,11 +173,44 @@ document.querySelector(".cover-button")?.addEventListener("click", () => {
   }, 450);
 });
 
-document.querySelector(".rsvp-form").addEventListener("submit", (event) => {
-  if (!invitation.form.action) {
-    event.preventDefault();
-    event.currentTarget.classList.add("submitted");
-    event.currentTarget.querySelector("button").textContent = "Одговорот е зачуван";
+document.querySelector(".rsvp-form").addEventListener("submit", async (event) => {
+  if (invitation.form.action) return;
+
+  event.preventDefault();
+
+  const form = event.currentTarget;
+  const button = form.querySelector("button");
+  const data = new FormData(form);
+  const defaultText = "Испрати одговор";
+
+  button.disabled = true;
+  button.textContent = "Се испраќа...";
+
+  try {
+    const response = await fetch("/.netlify/functions/rsvp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: data.get("Име и презиме"),
+        attendance: data.get("Присуство"),
+        guestCount: data.get("Број на придружба"),
+        guestNames: data.get("Имиња на придружба"),
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("RSVP request failed");
+    }
+
+    form.classList.add("submitted");
+    button.textContent = "Одговорот е испратен";
+    form.reset();
+  } catch {
+    button.disabled = false;
+    button.textContent = defaultText;
+    window.alert("Не успеавме да го испратиме одговорот. Обидете се повторно.");
   }
 });
 

@@ -740,6 +740,11 @@ h1 em {
   font-size: 16px;
 }
 
+.rsvp-form button:disabled {
+  cursor: wait;
+  opacity: 0.78;
+}
+
 .rsvp-form.submitted button {
   background: var(--olive-dark);
 }
