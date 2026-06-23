@@ -684,6 +684,39 @@ h1 em {
   line-height: 1.22;
 }
 
+.rsvp-success {
+  display: none;
+  margin: 28px auto 0;
+  padding: 22px 18px;
+  border: 1px solid rgba(89, 59, 0, 0.24);
+  background: rgba(255, 255, 255, 0.42);
+  text-align: center;
+}
+
+.rsvp-success p {
+  margin: 0 0 8px;
+  color: var(--olive-dark);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.rsvp-success span {
+  display: block;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.rsvp-form.submitted .rsvp-copy,
+.rsvp-form.submitted label,
+.rsvp-form.submitted fieldset,
+.rsvp-form.submitted button {
+  display: none;
+}
+
+.rsvp-form.submitted .rsvp-success {
+  display: block;
+}
+
 .rsvp-form label,
 .rsvp-form fieldset {
   display: grid;

@@ -50,43 +50,46 @@ export const handler = async (event) => {
     timeZone: "Europe/Skopje",
   });
 
-  const attendanceColor = attendance === "Да" ? "#6f8353" : "#9a6b52";
-  const attendanceLabel = attendance === "Да" ? "Доаѓаат" : "Не доаѓаат";
+  const isAttending = attendance === "Да";
+  const attendanceColor = isAttending ? "#7b8a5f" : "#9a6b52";
+  const attendanceLabel = isAttending ? "Доаѓаат" : "Не доаѓаат";
+  const attendanceText = isAttending ? "Да, со задоволство" : "Не, за жал не сум во можност";
 
   const html = `
-    <div style="margin:0; padding:32px 18px; background:#f7f4ef; font-family:Arial, Helvetica, sans-serif; color:#593b00;">
-      <div style="max-width:620px; margin:0 auto; background:#fffdf8; border:1px solid #e6dcc7; border-radius:14px; overflow:hidden;">
-        <div style="padding:28px 30px; background:#7b8a5f; color:#fff;">
-          <p style="margin:0 0 8px; font-size:13px; letter-spacing:1.6px; text-transform:uppercase;">Ahtan &amp; Dzejna</p>
-          <h1 style="margin:0; font-size:28px; line-height:1.15;">Нов RSVP одговор</h1>
+    <div style="margin:0; padding:28px 16px; background:#f7f4ef; font-family:Georgia, 'Times New Roman', serif; color:#593b00;">
+      <div style="max-width:620px; margin:0 auto; background:#fffdf8; border:1px solid #e8ddc9; border-radius:10px; overflow:hidden;">
+        <div style="padding:30px 30px 24px; background:#fbfaf5; border-bottom:1px solid #e8ddc9; text-align:center;">
+          <p style="margin:0 0 10px; color:#7b8a5f; font-family:Arial, Helvetica, sans-serif; font-size:12px; letter-spacing:2.2px; text-transform:uppercase;">Ahtan &amp; Dzejna</p>
+          <h1 style="margin:0; color:#593b00; font-size:30px; font-weight:400; line-height:1.15;">Нов одговор за свадбата</h1>
+          <p style="margin:12px 0 0; color:#8a7653; font-size:16px;">12.08.2026</p>
         </div>
 
-        <div style="padding:28px 30px 8px;">
-          <div style="display:inline-block; padding:8px 14px; border-radius:999px; background:${attendanceColor}; color:#fff; font-weight:700; font-size:14px;">
+        <div style="padding:28px 30px 10px;">
+          <div style="display:inline-block; padding:9px 16px; border-radius:999px; background:${attendanceColor}; color:#fff; font-family:Arial, Helvetica, sans-serif; font-weight:700; font-size:14px;">
             ${escapeHtml(attendanceLabel)}
           </div>
 
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top:24px; border-collapse:collapse;">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top:22px; border-collapse:collapse;">
             <tr>
-              <td style="padding:14px 0; border-bottom:1px solid #eee6d8; color:#8a7653; font-size:13px; text-transform:uppercase; letter-spacing:.8px;">Име и презиме</td>
+              <td style="padding:16px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:1.4px;">Име и презиме</td>
             </tr>
             <tr>
-              <td style="padding:0 0 16px; font-size:24px; color:#593b00;">${escapeHtml(name)}</td>
+              <td style="padding:0 0 16px; font-size:26px; color:#593b00; line-height:1.2;">${escapeHtml(name)}</td>
             </tr>
             <tr>
-              <td style="padding:14px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-size:13px; text-transform:uppercase; letter-spacing:.8px;">Присуство</td>
+              <td style="padding:16px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:1.4px;">Присуство</td>
             </tr>
             <tr>
-              <td style="padding:0 0 16px; font-size:18px;">${escapeHtml(attendance)}</td>
+              <td style="padding:0 0 16px; font-size:18px; line-height:1.35;">${escapeHtml(attendanceText)}</td>
             </tr>
             <tr>
-              <td style="padding:14px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-size:13px; text-transform:uppercase; letter-spacing:.8px;">Број на придружба</td>
+              <td style="padding:16px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:1.4px;">Број на придружба</td>
             </tr>
             <tr>
               <td style="padding:0 0 16px; font-size:18px;">${escapeHtml(guestCount)}</td>
             </tr>
             <tr>
-              <td style="padding:14px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-size:13px; text-transform:uppercase; letter-spacing:.8px;">Имиња на придружба</td>
+              <td style="padding:16px 0 6px; border-top:1px solid #eee6d8; color:#8a7653; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:1.4px;">Имиња на придружба</td>
             </tr>
             <tr>
               <td style="padding:0 0 16px; font-size:18px; line-height:1.45;">${escapeHtml(guestNames || "-")}</td>
@@ -94,7 +97,7 @@ export const handler = async (event) => {
           </table>
         </div>
 
-        <div style="padding:18px 30px 26px; color:#8a7653; font-size:13px; background:#fbf8f1;">
+        <div style="padding:18px 30px 24px; color:#8a7653; font-family:Arial, Helvetica, sans-serif; font-size:13px; background:#fbf8f1; border-top:1px solid #eee6d8;">
           Испратено: ${escapeHtml(submittedAt)}
         </div>
       </div>
@@ -110,7 +113,7 @@ export const handler = async (event) => {
     body: JSON.stringify({
       from: fromEmail,
       to: [toEmail],
-      subject: `Wedding RSVP: ${name} - ${attendanceLabel}`,
+      subject: `Нов одговор за свадбата: ${name} - ${attendanceLabel}`,
       html,
     }),
   });

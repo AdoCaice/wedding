@@ -129,6 +129,10 @@ app.innerHTML = `
             <span>Присуство</span>
           </div>
           <p class="rsvp-copy">Ве молиме потврдете присуство за Вас и Вашата придружба, доколку ја имате, најдоцна до ${invitation.date.rsvpDeadline}. Ве очекуваме!</p>
+          <div class="rsvp-success" aria-live="polite">
+            <p>Ви благодариме!</p>
+            <span>Вашиот одговор е успешно испратен.</span>
+          </div>
           <label>
             <span>Ваше име и презиме</span>
             <input type="text" name="Име и презиме" placeholder="Име Презиме" required />
