@@ -1,0 +1,4 @@
+node_modules/
+dist/
+.scrape/
+.DS_Store
