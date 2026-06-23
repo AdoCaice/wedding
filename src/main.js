@@ -50,7 +50,7 @@ app.innerHTML = `
             .join("")}
         </div>
         <p class="story">${invitation.copy.story}</p>
-        <img class="champagne rings-decoration" src="/assets/rings-only.svg" alt="" />
+        <img class="countdown-flowers" src="/assets/countdown-flowers.png" alt="" />
       </section>
 
       <section class="date-details-cover">

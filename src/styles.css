@@ -372,14 +372,9 @@ h1 em {
   max-width: 350px;
 }
 
-.champagne {
-  width: 170px;
-  opacity: 0.92;
-}
-
-.rings-decoration {
-  width: 132px;
-  opacity: 0.82;
+.countdown-flowers {
+  width: min(78vw, 310px);
+  opacity: 0.95;
 }
 
 .date-details-cover {
@@ -964,8 +959,8 @@ footer a {
     line-height: 1.25;
   }
 
-  .champagne {
-    width: 128px;
+  .countdown-flowers {
+    width: 360px;
   }
 
   .rsvp-panel {
