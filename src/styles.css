@@ -5,6 +5,18 @@
 }
 
 @font-face {
+  font-family: "Great Vibes";
+  src: url("/fonts/great-vibes-regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Parisienne";
+  src: url("/fonts/parisienne-regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Oranienbaum";
   src: url("/fonts/oranienbaum-regular.woff2") format("woff2");
   font-display: swap;
@@ -174,6 +186,62 @@ a {
   box-shadow: 0 0 80px rgba(89, 59, 0, 0.12);
 }
 
+.translate-widget {
+  position: fixed;
+  top: max(12px, env(safe-area-inset-top));
+  right: max(12px, calc((100vw - var(--max)) / 2 + 12px), env(safe-area-inset-right));
+  z-index: 18;
+  min-height: 34px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.opened .translate-widget {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.language-select {
+  display: block;
+  width: 118px;
+  min-height: 34px;
+  padding: 6px 9px;
+  border: 1px solid rgba(186, 159, 108, 0.56);
+  border-radius: 999px;
+  background: rgba(251, 250, 245, 0.92);
+  box-shadow: 0 8px 24px rgba(89, 59, 0, 0.12);
+  color: var(--brown);
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  outline: none;
+}
+
+.language-select:focus {
+  border-color: rgba(223, 172, 32, 0.82);
+  box-shadow:
+    0 0 0 3px rgba(223, 172, 32, 0.18),
+    0 8px 24px rgba(89, 59, 0, 0.12);
+}
+
+#google_translate_element {
+  display: none;
+}
+
+.skiptranslate iframe {
+  max-width: 100%;
+}
+
+body > .skiptranslate,
+.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
 .hero-panel {
   position: relative;
   width: 100vw;
@@ -220,7 +288,7 @@ a {
 
 h1 {
   display: grid;
-  gap: 8px;
+  gap: 2px;
   margin: 0 0 32px;
   color: var(--gold);
   font-size: clamp(54px, 16vw, 78px);
@@ -229,12 +297,19 @@ h1 {
   text-transform: uppercase;
 }
 
+h1 span {
+  font-family: "Parisienne", cursive;
+  font-size: clamp(76px, 21vw, 108px);
+  line-height: 0.82;
+  text-transform: capitalize;
+}
+
 h1 em {
   color: var(--brown);
-  font-family: "Miss Katherine Cyrillic Script", cursive;
-  font-size: 66px;
+  font-family: "Parisienne", cursive;
+  font-size: 46px;
   font-style: normal;
-  line-height: 0.5;
+  line-height: 0.72;
   text-transform: none;
 }
 
@@ -286,10 +361,10 @@ h1 em {
 .section-title span,
 .script {
   display: block;
-  margin-top: -4px;
-  font-family: "Miss Katherine Cyrillic Script", cursive;
-  font-size: clamp(66px, 19vw, 95px);
-  line-height: 0.7;
+  margin-top: 8px;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(42px, 12vw, 62px);
+  line-height: 0.9;
   text-transform: capitalize;
 }
 
@@ -671,9 +746,9 @@ h1 em {
 }
 
 .rsvp-form .section-title span {
-  margin-top: -2px;
-  font-size: clamp(72px, 18vw, 90px);
-  line-height: 0.56;
+  margin-top: 8px;
+  font-size: clamp(44px, 11vw, 62px);
+  line-height: 0.9;
 }
 
 .rsvp-copy {
@@ -867,6 +942,14 @@ footer a {
     font-size: 86px;
   }
 
+  h1 span {
+    font-size: 122px;
+  }
+
+  h1 em {
+    font-size: 54px;
+  }
+
   .countdown-band {
     max-width: none;
     min-height: 770px;
@@ -910,9 +993,9 @@ footer a {
   }
 
   .countdown-band .section-title span {
-    margin-top: -12px;
-    font-size: 104px;
-    line-height: 0.58;
+    margin-top: 8px;
+    font-size: 72px;
+    line-height: 0.9;
   }
 
   .countdown {
@@ -991,9 +1074,9 @@ footer a {
   }
 
   .rsvp-form .section-title span {
-    margin-top: -4px;
-    font-size: clamp(112px, 7.4vw, 154px);
-    line-height: 0.52;
+    margin-top: 10px;
+    font-size: clamp(62px, 4.2vw, 86px);
+    line-height: 0.9;
   }
 
   .rsvp-copy {
@@ -1079,9 +1162,9 @@ footer a {
   }
 
   .agenda-heading span {
-    margin-top: 0;
-    font-size: 180px;
-    line-height: 0.622;
+    margin-top: 10px;
+    font-size: 86px;
+    line-height: 0.9;
   }
 
   .timeline {
