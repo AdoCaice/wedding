@@ -37,9 +37,10 @@ a { color: inherit; }
 .ed-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,rgba(255,253,248,.12),transparent 25% 75%,rgba(255,253,248,.12)); pointer-events:none; }
 .ed-hero-copy { position: relative; z-index: 1; width: min(82%, 430px); }
 .ed-kicker, .ed-eyebrow { margin: 0; font-family: "Manrope"; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
-.ed-hero h1 { display: grid; margin: 52px 0 38px; font-weight: 400; line-height: .72; }
-.ed-hero h1 span { font-family: "Parisienne"; font-size: clamp(78px, 19vw, 130px); font-weight: 400; }
-.ed-hero h1 em { margin: 8px 0 0; color: var(--ed-champagne); font-family: "Parisienne"; font-size: 44px; font-style: normal; }
+.ed-hero h1 { display: grid; margin: 52px 0 38px; font-weight: 400; line-height: 1; }
+.ed-hero h1 span { font-family: "Parisienne"; font-size: clamp(78px, 19vw, 130px); font-weight: 400; line-height: .78; }
+.ed-hero h1 span:first-child { margin-bottom: 22px; }
+.ed-hero h1 em { margin: 0 0 8px; color: var(--ed-champagne); font-family: "Parisienne"; font-size: 44px; font-style: normal; line-height: .72; }
 .ed-divider { display: flex; align-items: center; gap: 14px; margin-bottom: 30px; }
 .ed-divider i { flex: 1; height: 1px; background: var(--ed-champagne); }
 .ed-divider b { font-family: "Manrope"; font-size: 12px; font-weight: 400; letter-spacing: .13em; }
@@ -69,8 +70,8 @@ a { color: inherit; }
 .ed-calendar { display:grid; grid-template-columns:repeat(7,1fr); gap:12px 7px; width:min(360px,88vw); margin:auto; font-family:"Manrope"; font-size:12px; }
 .ed-calendar b { padding-bottom:8px; border-bottom:1px solid var(--ed-line); color:var(--ed-taupe); font-weight:400; }
 .ed-calendar span { position:relative; display:grid; min-height:28px; place-items:center; }
-.ed-calendar .is-wedding { z-index:1; color:white; }
-.ed-calendar .is-wedding::before { content:"♥"; position:absolute; z-index:-1; top:-7px; color:var(--ed-champagne); font-family:Georgia,serif; font-size:38px; line-height:1; }
+.ed-calendar .is-wedding { color:var(--ed-ink); font-weight:600; }
+.ed-calendar .is-wedding::before { content:"♥"; position:absolute; top:-7px; color:var(--ed-champagne); font-family:Georgia,serif; font-size:10px; line-height:1; }
 .ed-spray-date-corner { left:-185px; bottom:-145px; width:430px; opacity:.48; filter:drop-shadow(0 18px 24px rgba(73,61,51,.1)); transform:translate3d(0,var(--parallax-y),0) rotate(16deg); }
 
 .ed-venue { position:relative; isolation:isolate; display:grid; min-height:760px; place-items:center; overflow:hidden; padding:80px 28px; background:linear-gradient(145deg,#e7dac7,#f7f1e7); }
