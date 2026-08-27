@@ -13,6 +13,14 @@ const app = document.querySelector("#app");
 
 app.innerHTML = `
   <main class="ed-site">
+    <audio class="ed-music" src="/assets/ervin-deyla/wedding-music.mp3" loop preload="auto"></audio>
+    <button class="ed-music-toggle" type="button" aria-label="Utišajte muziku" aria-pressed="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 10v4h4l5 4V6L8 10H4Z" />
+        <path class="ed-sound-wave" d="M16 9.5a4 4 0 0 1 0 5M18.5 7a7.5 7.5 0 0 1 0 10" />
+        <path class="ed-muted-mark" d="m16 9 5 6m0-6-5 6" />
+      </svg>
+    </button>
     <section class="ed-cover" aria-label="Otvorite pozivnicu">
       <button class="ed-cover-button" type="button">
         <img class="ed-cover-back" src="/assets/envelope-back.webp" alt="" />
@@ -103,10 +111,26 @@ app.innerHTML = `
 `;
 
 const cover = document.querySelector(".ed-cover");
+const music = document.querySelector(".ed-music");
+const musicToggle = document.querySelector(".ed-music-toggle");
+
+if (music) music.volume = 0.48;
+
 document.querySelector(".ed-cover-button")?.addEventListener("click", () => {
   document.body.classList.add("ed-opened");
   document.body.style.overflow = "";
+  music?.play().catch(() => {});
   window.setTimeout(() => cover?.remove(), 1200);
+});
+
+musicToggle?.addEventListener("click", () => {
+  if (!music) return;
+  music.muted = !music.muted;
+  musicToggle.classList.toggle("is-muted", music.muted);
+  musicToggle.setAttribute("aria-pressed", String(music.muted));
+  musicToggle.setAttribute("aria-label", music.muted ? "Uključite muziku" : "Utišajte muziku");
+
+  if (!music.muted && music.paused) music.play().catch(() => {});
 });
 
 document.querySelector(".ed-form")?.addEventListener("submit", async (event) => {
